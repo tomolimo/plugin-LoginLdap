@@ -49,9 +49,9 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - type: UI
-            php-versions: '7.2'
           - type: PluginTests
+            php-versions: '7.2'
+          - type: UI
             php-versions: '7.4'
           - type: PluginTests
             php-versions: '8.0'
