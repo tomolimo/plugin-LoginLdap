@@ -100,6 +100,12 @@ jobs:
         with:
           node-version: '12'
 
+      - name: Setup ldap
+        working-directory: /home/runner/work/matomo/matomo/${{ env.PLUGIN}}
+        shell: bash
+        run: |
+          ./.github/scripts/setup_ldap.sh
+
       - name: prepare setup
         shell: bash
         working-directory: /home/runner/work/matomo/matomo
