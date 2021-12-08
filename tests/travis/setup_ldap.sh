@@ -11,8 +11,6 @@ fi
 echo ""
 echo "Configuring LDAP..."
 
-mkdir -p /home/runner/work/matomo/matomo/tmp/ldap
-sudo chmod -R 777 /home/runner/work/matomo/matomo/tmp/ldap
 
 ADMIN_USER=fury
 ADMIN_PASS=secrets
@@ -61,7 +59,7 @@ objectClass: olcHdbConfig
 olcDatabase: {2}hdb
 olcRootDN: cn=$ADMIN_USER,$BASE_DN
 olcRootPW: $ADMIN_PASS_HASH
-olcDbDirectory: /home/runner/work/matomo/matomo/tmp/ldap
+olcDbDirectory: /tmp/ldap
 olcSuffix: $BASE_DN
 olcAccess: {0}to attrs=userPassword,shadowLastChange by self write by dn="cn=$ADMIN_USER,$BASE_DN" write by * auth
 olcAccess: {1}to dn.base="" by dn="cn=$ADMIN_USER,$BASE_DN" write by * read

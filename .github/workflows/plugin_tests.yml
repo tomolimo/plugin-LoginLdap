@@ -101,10 +101,10 @@ jobs:
           node-version: '12'
 
       - name: Setup ldap
-        working-directory: /home/runner/work/matomo/matomo/
-        shell: bash
         run: |
-          cd plugins/${{ env.PLUGIN}}
+          mkdir -p /tmp/ldap
+          sudo chmod -R 777 /tmp/ldap
+          cd /home/runner/work/matomo/matomo/plugins/${{ env.PLUGIN}}
           sudo ./.github/scripts/setup_ldap.sh
 
       - name: prepare setup
