@@ -105,7 +105,7 @@ jobs:
         shell: bash
         run: |
           cd plugins/${{ env.PLUGIN}}
-          ./.github/scripts/setup_ldap.sh
+          sudo ./.github/scripts/setup_ldap.sh
 
       - name: prepare setup
         shell: bash
