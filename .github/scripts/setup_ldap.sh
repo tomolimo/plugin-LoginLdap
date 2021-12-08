@@ -14,9 +14,6 @@ echo "Configuring LDAP..."
 mkdir -p /tmp/ldap
 sudo chmod -R 777 /tmp/ldap
 
-sudo service slapd stop
-
-
 ADMIN_USER=fury
 ADMIN_PASS=secrets
 ADMIN_PASS_HASH=`slappasswd -h {md5} -s $ADMIN_PASS`
@@ -313,5 +310,3 @@ ldapsearch -x -D "cn=Tony Stark,$BASE_DN" -w "piedpiper" -b "$BASE_DN" "(uid=iro
 
 echo ldapsearch -x -D "cn=$ADMIN_USER,$BASE_DN" -w "$ADMIN_PASS" -b "$BASE_DN"
 ldapsearch -x -D "cn=$ADMIN_USER,$BASE_DN" -w "$ADMIN_PASS" -b "$BASE_DN"
-
-sudo service slapd start
